@@ -20,5 +20,8 @@ Route::get('/pusher', [App\Http\Controllers\HomeController::class, 'pusher'])->n
 Route::get('/animation', [App\Http\Controllers\HomeController::class, 'animation'])->name('animation');
 Route::get('/route', [App\Http\Controllers\HomeController::class, 'route'])->name('route');
 
+Route::get('/chart', [App\Http\Controllers\HomeController::class, 'chart'])->name('chart.bind');
+
 Route::get('/message/index', [App\Http\Controllers\MessageController::class, 'index']);
 Route::get('/message/send', [App\Http\Controllers\MessageController::class, 'send']);
+
