@@ -19,3 +19,5 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 Route::get('/pusher', [App\Http\Controllers\HomeController::class, 'pusher'])->name('pusher');
 Route::get('/animation', [App\Http\Controllers\HomeController::class, 'animation'])->name('animation');
 Route::get('/route', [App\Http\Controllers\HomeController::class, 'route'])->name('route');
+
+Route::get('/chart', [App\Http\Controllers\HomeController::class, 'chart'])->name('chart.bind');

@@ -1,0 +1,25 @@
+{
+    "name": "secqureone/chart",
+    "description": "This is Dynamic Chart",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chithresuganesan",
+            "email": "chithresu@secqureone.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sqone\\Chart\\": "src/"
+        }
+    },
+    "extra": {
+    "laravel": {
+        "providers": [
+            "Sqone\\Chart\\Providers\\ChartServiceProvider"
+        ]
+    }
+}
