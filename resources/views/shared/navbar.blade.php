@@ -1,7 +1,7 @@
 @php
   $route = Route::currentRouteName();
 @endphp
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light border-bottom border-secondary bg-light">
      <div class="container-fluid">
        <a class="navbar-brand" href="{{ route('index') }}">
         Logo
@@ -28,7 +28,7 @@
              <a class="nav-link" href="{{ route('pusher') }}">Pusher</a>
              </li>
           <li class="nav-item">
-             <a class="nav-link" href="{{ route('animation') }}">Route</a>
+             <a class="nav-link" href="{{ route('animation') }}">animation</a>
              </li>
              <li class="nav-item">
              <a class="nav-link" href="{{ route('route') }}">Route</a>
