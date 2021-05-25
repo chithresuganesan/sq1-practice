@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Validator;
 use App\Models\CustomRoute;
+use Chart;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,11 +27,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $customroutes = CustomRoute::where('route_show', 'enable')->get();
-      // foreach ($customroutes as $key => $routes) {
-      //   return 'Route::'.$routes->request_type."('/".$routes->group_url.'/'.$routes->url."',[".$routes->controller_name."::class, '". $routes->function_name."'])->name('".$routes->route_name."');";
-      // }
-        return view('route', ['customroutes' => $customroutes]);
+
+//       $customroutes = CustomRoute::where('route_show', 'enable')->get();
+//       // foreach ($customroutes as $key => $routes) {
+//       //   return 'Route::'.$routes->request_type."('/".$routes->group_url.'/'.$routes->url."',[".$routes->controller_name."::class, '". $routes->function_name."'])->name('".$routes->route_name."');";
+//       // }
+//         return view('route', ['customroutes' => $customroutes]);
+
+       return view('chart');
+
+    }
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function pusher()
+    {
+        return view('pusher');
+    }
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function animation()
+    {
+        return view('animation');
+
     }
 
       /**
@@ -67,4 +92,45 @@ class HomeController extends Controller
 
        return redirect()->back();
     }
+
+
+    public function chart()
+    {
+      $request = app('request');
+
+      if ($request->chart_id == 'demo1') {
+        $type = $request->chart_type;
+
+        $labels = ['Secqureone', 'comscore', 'pixstone', 'centrexIT'];
+        $data = [300, 400, 800, 19];
+
+        $collect_data[] = [
+               'label' => ucfirst("clients"),
+               'data' => $data,
+               'backgroundColor' => ['red', 'green', 'blue', 'orange'],
+           ];
+
+        return Chart::setType($type)->setLabel($labels)->Datasets($collect_data)->get();
+      }
+
+       else {
+        $type = $request->chart_type;
+
+        $labels = ['Client 1', 'Client 2', 'Client 3', 'Client 4'];
+        $data = [60, 30, 80, 109];
+
+        $collect_data[] = [
+               'label' => ucfirst("clients"),
+               'data' => $data,
+               'backgroundColor' => ['orange','red', 'green', 'blue'],
+           ];
+
+        return Chart::setType($type)->setLabel($labels)->Datasets($collect_data)->get();
+      }
+
+
+    }
+
+
+
 }
